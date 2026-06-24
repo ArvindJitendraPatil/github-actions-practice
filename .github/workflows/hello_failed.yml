@@ -14,8 +14,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-
-      - name: Print Message
-        run: echo "Hello from GitHub Actions!"
+        
       - name: Intentional Failure
         run: exit 1
+        
+      - name: Print Message
+        run: echo "Hello from GitHub Actions!"
+      
