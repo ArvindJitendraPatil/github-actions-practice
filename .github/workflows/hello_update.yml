@@ -1,4 +1,4 @@
-name: Hello Workflow
+name: Hello Update
 
 on:
   push:
