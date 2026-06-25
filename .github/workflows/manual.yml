@@ -1,23 +1,21 @@
-name: Manual Workflow
+name: Manual Trigger Workflow (take environment value from user)
 
 on:
   workflow_dispatch:
     inputs:
       environment:
-        description: "Select environment"
+        description: 'Select the environment'
         required: true
-        default: "staging"
+        default: 'staging'
         type: choice
         options:
           - staging
           - production
 
 jobs:
-  deploy:
+  print-env:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Print Environment
-        run: echo "Selected environment: ${{ inputs.environment }}"
+      - name: Print selected environment
+        run: |
+         echo "Selected environment: ${{ github.event.inputs.environment }}"
