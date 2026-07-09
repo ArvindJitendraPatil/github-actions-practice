@@ -1,7 +1,6 @@
 name: Matrix Build
 
 on:
-  on:
   push:
     branches:
       - main
