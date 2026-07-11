@@ -1,6 +1,6 @@
 name: multi-job dependencies
 
-  on:
+on:
   workflow_dispatch:
 
 jobs:
