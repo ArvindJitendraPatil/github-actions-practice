@@ -22,15 +22,4 @@ jobs:
        if: failure()
        run: echo "Previous step failed....."
 
-  on-push:
-    if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - name: only run on push events
-        run: echo "Only run on push events"
-        
-      - name: step with continue-on-error
-        run: |
-          echo "This step will fail"
-          exit 1
-        continue-on-error: true
+  
