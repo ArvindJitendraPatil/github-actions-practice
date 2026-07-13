@@ -1,6 +1,7 @@
 name: conditional-failed-main-demo
 on:
- workflow_dispatch:
+ push:
+  branches: [main]
 
 jobs:
   when_main:
