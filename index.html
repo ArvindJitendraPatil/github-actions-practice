@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docker CI/CD Pipeline</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px;
+color:white;
+
+}
+
+.container{
+
+width:1100px;
+max-width:95%;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:25px;
+padding:40px;
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+}
+
+h1{
+
+text-align:center;
+font-size:42px;
+margin-bottom:10px;
+
+}
+
+.subtitle{
+
+text-align:center;
+color:#ddd;
+margin-bottom:30px;
+font-size:17px;
+
+}
+
+.badge{
+
+display:flex;
+justify-content:center;
+margin-bottom:35px;
+
+}
+
+.badge img{
+
+height:32px;
+
+}
+
+/* Pipeline */
+
+.pipeline{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+
+}
+
+.stage{
+
+flex:1;
+min-width:180px;
+padding:25px;
+border-radius:18px;
+text-align:center;
+font-weight:600;
+position:relative;
+transition:.3s;
+cursor:pointer;
+
+}
+
+.stage:hover{
+
+transform:translateY(-8px) scale(1.03);
+
+}
+
+.stage .icon{
+
+font-size:45px;
+margin-bottom:12px;
+display:block;
+
+}
+
+.stage p{
+
+font-size:14px;
+font-weight:400;
+margin-top:8px;
+color:#f1f1f1;
+
+}
+
+.checkout{
+
+background:linear-gradient(135deg,#2193b0,#6dd5ed);
+
+}
+
+.build{
+
+background:linear-gradient(135deg,#11998e,#38ef7d);
+
+}
+
+.push{
+
+background:linear-gradient(135deg,#f7971e,#ffd200);
+color:#222;
+
+}
+
+.deploy{
+
+background:linear-gradient(135deg,#7F00FF,#E100FF);
+
+}
+
+.stage:not(:last-child)::after{
+
+content:"➜";
+position:absolute;
+right:-25px;
+top:50%;
+transform:translateY(-50%);
+font-size:28px;
+font-weight:bold;
+color:white;
+
+}
+
+/* Tech */
+
+.tech{
+
+margin-top:40px;
+text-align:center;
+
+}
+
+.tech h2{
+
+margin-bottom:15px;
+
+}
+
+.tech span{
+
+display:inline-block;
+margin:8px;
+padding:10px 18px;
+background:white;
+color:#222;
+border-radius:30px;
+font-size:14px;
+font-weight:600;
+transition:.3s;
+
+}
+
+.tech span:hover{
+
+background:#00c6ff;
+color:white;
+
+}
+
+/* Footer */
+
+.footer{
+
+margin-top:40px;
+text-align:center;
+font-size:14px;
+color:#ccc;
+
+}
+
+@media(max-width:900px){
+
+.pipeline{
+
+flex-direction:column;
+
+}
+
+.stage{
+
+width:100%;
+
+}
+
+.stage::after{
+
+content:"⬇";
+right:50%;
+top:105%;
+transform:translateX(50%);
+
+}
+
+.stage:last-child::after{
+
+content:"";
+
+}
+
+h1{
+
+font-size:32px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🐳 Docker CI/CD Pipeline</h1>
+
+<p class="subtitle">
+Automated Docker Build • Push • Deploy using GitHub Actions
+</p>
+
+<div class="badge">
+
+<img src="https://github.com/srdangat/github-actions-practice/actions/workflows/docker-publish.yml/badge.svg"
+alt="Docker Workflow">
+
+</div>
+
+<div class="pipeline">
+
+<div class="stage checkout">
+
+<span class="icon">📥</span>
+
+Code Checkout
+
+<p>Clone repository from GitHub</p>
+
+</div>
+
+<div class="stage build">
+
+<span class="icon">🏗️</span>
+
+Build Docker Image
+
+<p>Create Docker image from Dockerfile</p>
+
+</div>
+
+<div class="stage push">
+
+<span class="icon">📤</span>
+
+Push to Docker Hub
+
+<p>Publish image securely</p>
+
+</div>
+
+<div class="stage deploy">
+
+<span class="icon">🚀</span>
+
+Pull & Run
+
+<p>Deploy latest container automatically</p>
+
+</div>
+
+</div>
+
+<div class="tech">
+
+<h2>🛠 Tech Stack</h2>
+
+<span>Docker</span>
+<span>GitHub Actions</span>
+<span>Docker Hub</span>
+<span>Nginx</span>
+<span>Linux</span>
+<span>CI/CD</span>
+
+</div>
+
+<div class="footer">
+
+Made with ❤️ using Docker & GitHub Actions
+
+</div>
+
+</div>
+
+</body>
+</html>
