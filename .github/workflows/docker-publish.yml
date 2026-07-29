@@ -1,6 +1,7 @@
 name: CI/CD Pipeline for Docker Build & Push image
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
