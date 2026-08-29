@@ -1,0 +1,21 @@
+name: Smart Triggers
+
+on:
+  push:
+    branches:
+      - main
+      - 'release/*'
+
+    paths:
+      - 'src/**'
+      - 'app/**'
+
+jobs:
+  smart-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show Trigger
+        run: |
+          echo "Smart trigger executed."
+          echo "Branch: ${{ github.ref }}"
