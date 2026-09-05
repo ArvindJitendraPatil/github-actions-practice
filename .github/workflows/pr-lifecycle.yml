@@ -1,15 +1,21 @@
-name: PR Lifecycle
+name: Pull Request Lifecycle
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, closed]
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - closed
 
 jobs:
-  pr-info:
+  pr-lifecycle:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Show PR Information
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Print PR Details
         run: |
           echo "Event Type: ${{ github.event.action }}"
           echo "PR Title: ${{ github.event.pull_request.title }}"
@@ -17,8 +23,18 @@ jobs:
           echo "Source Branch: ${{ github.event.pull_request.head.ref }}"
           echo "Target Branch: ${{ github.event.pull_request.base.ref }}"
 
+      - name: PR Opened
+        if: ${{ github.event.action == 'opened' }}
+        run: echo "PR Opened"
+
+      - name: PR Updated (Synchronize)
+        if: ${{ github.event.action == 'synchronize' }}
+        run: echo "PR Updated"
+
+      - name: PR Reopened
+        if: ${{ github.event.action == 'reopened' }}
+        run: echo "PR Reopened"
+
       - name: PR Merged
-        if: github.event.action == 'closed' && github.event.pull_request.merged == true
-        run: |
-          echo "PR was successfully merged!"
-          echo "Merged PR: ${{ github.event.pull_request.title }}"
+        if: ${{ github.event.pull_request.merged == true }}
+        run: echo "PR Merged"
