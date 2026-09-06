@@ -10,5 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print Branch Name
-        run: "PR check running for branch: ${{ github.ref_name }}"
+      - name: Print Branches
+        run: |
+          echo "Source branch: ${{ github.head_ref }}"
+          echo "Target branch: ${{ github.base_ref }}"
