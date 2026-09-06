@@ -28,7 +28,7 @@ jobs:
 
       - name: PR Updated (Synchronize)
         if: ${{ github.event.action == 'synchronize' }}
-        run: echo "PR Updated for check"
+        run: echo "PR New Update"
         
       - name: PR Reopened
         if: ${{ github.event.action == 'reopened' }}
